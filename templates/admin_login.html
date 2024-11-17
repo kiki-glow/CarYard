@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Caryard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}" type="png">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="/" class="logo">Caryard</a>
+        <ul class="nav-links">
+            <li><a href="/admin/register">Admin Register</a></li>
+        </ul>
+    </nav>
+
+    <!-- Login Form -->
+    <div class="form-container">
+        <h1>Admin Login</h1>
+        <form action="/admin/login" method="post">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <img src="{{ url_for('static', filename='images/icon.png') }}" alt="Caryard Logo" class="favicon">
+            <p>&copy; 2024 Caryard. All rights reserved.</p>
+        </div>
+    </footer> 
+
+</body>
+</html>

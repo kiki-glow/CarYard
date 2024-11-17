@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caryard - Vintage Cars</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}" type="png">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="/" class="logo">Caryard</a>
+        <ul class="nav-links">
+            <li><a href="/admin/register">Admin Register</a></li>
+            <li><a href="/admin/login">Admin Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Welcome to Caryard</h1>
+        <p>Your one-stop destination for vintage cars.</p>
+        
+        <!-- Car Cards -->
+        <div class="car-cards">
+            {% for car in cars %}
+                <div class="car-card">
+                    <img src="{{ car.image_url }}" alt="{{ car.make }} {{ car.model }}">
+                    <h2>{{ car.make }} {{ car.model }}</h2>
+                    <p>{{ car.description }}</p>
+                    <p class="price">${{ car.price }}</p>
+                    <button>Request Quotation</button>
+                </div>
+            {% else %}
+                <p>No cars available at the moment. Check back soon!</p>
+            {% endfor %}
+        </div>
+
+        <div class="map-container">
+            <iframe 
+               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093746!2d144.9537363153169!3d-37.81720997975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f2c3d9db%3A0x5045675218ce7e33!2zTWVsYm91cm5lIFZJQyAzMDAwLCDgpr_gpq_gpr_gpr_gpr8!5e0!3m2!1sen!2sus!4v1616173580582!5m2!1sen!2sus"
+               width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="">
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <img src="{{ url_for('static', filename='images/icon.png') }}" alt="Caryard Logo" class="favicon">
+            <p>&copy; 2024 Caryard. All rights reserved.</p>
+        </div>
+    </footer>    
+
+</body>
+</html>
