@@ -82,7 +82,7 @@ caryard_project/
    Create a `.env` file in the project root with the following content:
    ```plaintext
    SECRET_KEY="your_secret_key"
-   MONGO_URI="mongodb://localhost:27017/caryard_db"
+   MONGO_URI="mongodb://<username>:<password>@<host>:<port>/<database_name>"
    ```
 
 5. **Run the Application**:
