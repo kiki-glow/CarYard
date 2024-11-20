@@ -8,8 +8,33 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
-    background-color: #f8f9fa;
+    background-color: #fffcef;
     line-height: 1.6;
+}
+
+/* Navbar Styles */
+.logo {
+    display: inline-block;
+    text-decoration: none; /* Remove underline */
+}
+
+.logo img {
+    width: 120px;
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra spacing */
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap; /* Prevents text wrapping */
+    border: 0;
 }
 
 /* Navbar Styles */
@@ -18,37 +43,94 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: #702632;
+    background: linear-gradient(to left, #702632, #ff7070, #d1adb6, #fffcef, #cbb9b2);
     color: #fff;
     position: sticky;
     top: 0;
     z-index: 100;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.navbar .logo {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #fff;
-    text-decoration: none;
+    height: auto;
+    line-height: 1.5;
 }
 
 .nav-links {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     list-style: none;
+    margin: 0; /* Removes unnecessary vertical space */
 }
 
 .nav-links a {
-    color: #ffffff;
+    color: #f8f8ff;
+    font-size: larger;
     text-decoration: none;
     font-weight: 500;
+    padding: 0.5rem 1rem;
     transition: color 0.3s, transform 0.3s;
+    padding: 0.5rem 0.8rem; /* Reduces padding around links */
+    border-radius: 5px;
 }
 
 .nav-links a:hover {
-    color: #ff7070;
+    color: #f8f8ff;
+    background-color: rgba(112, 38, 50, 0.7); /* Slightly transparent hover effect */
     transform: scale(1.05);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Adds depth */
+}
+
+/* Active Link */
+.nav-links .active {
+    background-color: #ff7070;
+    color: #f8f8ff;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-end;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+    }
+}
+
+.brand-highlight {
+    color: #8d2a3c;
+    font-family: 'Cursive', sans-serif;
+    font-size: 1.5em; /* Makes it slightly larger */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Adds a subtle shadow for depth */
+    background: linear-gradient(to left, #ff7070, #8d2a3c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    padding: 0 5px; /* Adds spacing for better alignment */
+}
+
+.tagline {
+    font-size: 1.2em; /* Slightly larger font size */
+    color: #555555; /* Neutral color for elegance */
+    font-family: 'Georgia', serif; /* Classic font for a vintage feel */
+    text-align: center; /* Center aligns the text */
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    letter-spacing: 0.5px; /* Adds subtle spacing between letters */
+    line-height: 1.5; /* Improves readability */
+    border-left: 4px solid #702632; /* Decorative vertical line */
+    padding-left: 10px; /* Space between the border and text */
+    background: linear-gradient(to left, #ff7070 10%, #f5f5f5 90%);
+    display: inline-block;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1); /* Adds slight depth */
+    border-radius: 5px; /* Rounds the corners */
+}
+
+#main-content {
+    flex: 1 0 auto;
 }
 
 /* Container and Content Styling */
@@ -75,7 +157,7 @@ body {
 }
 
 .car-card {
-    background-color: #ffffff;
+    background-color: #f0f8f8;
     border: 1px solid #ddd;
     border-radius: 10px;
     overflow: hidden;
@@ -136,7 +218,7 @@ body {
     max-width: 500px;
     margin: 2rem auto;
     padding: 2rem;
-    background-color: #ffffff;
+    background-color: #f0f8f8;
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
@@ -303,6 +385,10 @@ footer {
     color: #fcfcfc;
     padding: 1rem;
     text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto;
 }
 
 .footer-content {
@@ -340,5 +426,24 @@ footer .favicon {
     .form-container {
         width: 90%;
         padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem; /* Slightly increase padding for touchscreens */
+    }
+
+    .logo img {
+        width: 100px; /* Adjust logo size */
+    }
+
+    .nav-links {
+        flex-direction: column; /* Stack links vertically */
+        gap: 0.5rem;
+    }
+
+    .nav-links a {
+        padding: 0.8rem; /* Increase clickable area for smaller screens */
     }
 }

@@ -11,7 +11,10 @@
 
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <a href="/" class="logo">Caryard</a>
+        <a href="/" class="logo">
+            <img src="/static/images/logo.png" alt="Caryard Logo">
+            <span class="sr-only">Caryard</span>
+        </a>        
         <ul class="nav-links">
             <li><a href="/admin/register">Admin Register</a></li>
             <li><a href="/admin/login">Admin Login</a></li>
@@ -30,9 +33,12 @@
     {% endwith %}
 
     <!-- Main Content -->
-    <div class="container">
-        <h1>Welcome to Caryard</h1>
-        <p>Your one-stop destination for vintage cars.</p>
+    <div class="container" id="main-content">
+        <h1>
+            Welcome to 
+            <span class="brand-highlight">CarYard</span>
+          </h1>          
+          <p class="tagline">Your one-stop destination for vintage cars.</p>
         
         <!-- Car Cards -->
         <div class="car-cards">

@@ -11,7 +11,10 @@
 
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <a href="/" class="logo">Caryard</a>
+        <a href="/" class="logo">
+            <img src="/static/images/logo.png" alt="Caryard Logo">
+            <span class="sr-only">Caryard</span>
+        </a>  
         <ul class="nav-links">
             <li><a href="/admin/dashboard">Dashboard</a></li>
             <li><a href="/admin/logout">Logout</a></li>
@@ -19,7 +22,7 @@
     </nav>
 
     <!-- Edit Car Form -->
-    <div class="form-container">
+    <div class="form-container" id="main-content">
         <h1>Edit Car Details</h1>
         <form action="{{ url_for('edit_car', car_id=car['_id']) }}" method="POST">
             <label for="make">Make</label>
